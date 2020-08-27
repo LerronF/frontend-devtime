@@ -11,11 +11,12 @@ export const getToken = () => currentTooken;
 export const authenticate = async (account: string = "", secret: string = ""): Promise<TokenResult> => {
 
     const body = {
-        username: account.trim(),
-        password: secret.trim()//btoa(secret)
+        account: account.trim(),
+        secret: btoa(secret)
+        
     }
 
-    console.log("autenticatex", { body });
+    console.log("autenticate", { body });
 
     const result = await ApiService.call<TokenResult>(ApiService.Endpoints.AUTH_TOKEN, "POST", "", "", body);
 

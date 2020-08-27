@@ -2,8 +2,7 @@ import * as AuthService from "./auth.service";
 
 
 export enum Endpoints {
-    //AUTH_TOKEN = "api/v1/auth/token",
-    AUTH_TOKEN = "api/v1/auth",
+    AUTH_TOKEN = "api/v1/auth/token",
     PROJECT = "api/v1/project",
     PROJECT_STATS = "api/v1/project-stats",
 }
@@ -11,9 +10,8 @@ export enum Endpoints {
 
 export const getURl = () => {
     const host = "localhost";//location.host.replace(`:${location.port}`, "");
-    console.log("caminho e tal....."+host);
-    const port = 8081;
-    const protocol = "https";
+    const port = 8282;
+    const protocol = "http";
     const url =  `${protocol}://${host}:${port}`;
     console.log({url});
     return url;
@@ -39,8 +37,8 @@ export /**
             body: body && JSON.stringify(body),
             method,
             headers: {
-                "x-access-token": `Bearer ${token}`,
-                //"Content-Type": "application/json; charset=utf-8"
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json; charset=utf-8"
             }
         }
 

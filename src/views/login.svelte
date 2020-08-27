@@ -14,13 +14,14 @@
       let text = "Login";
       let inProcess = false;
       let inProcessStatus = "";
-      let account = "demo";
+      let account = "lerron@lerron.com";
       let secret = "123456";
-    
+
       const login = async () => {
         inProcess = true;
         inProcessStatus = "Checking your credentials......";
-    
+        
+        console.log(account + "---"+secret);
         let [error, result] = await to(AuthService.authenticate(account, secret));
     
         if (error) {
